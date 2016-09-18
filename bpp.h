@@ -15,7 +15,7 @@ public:
 
 class MetaStr : public Metadata {
 public:
-	MetaStr(std::string&& s) { str = s; }
+	MetaStr(std::string&& s) { str = std::move(s); }
 	bool operator<(const MetaStr& other) const { return str < other.str; }
 	std::string str;
 	void print(std::string tabs="") const { std::cout << tabs << str; }
@@ -68,7 +68,7 @@ public:
 
 	struct Exception {
 		std::string msg;
-		Exception(std::string&& m) { msg = m; }
+		Exception(std::string&& m) { msg = std::move(m); }
 	};
 
 private:
